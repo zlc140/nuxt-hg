@@ -11,7 +11,7 @@
          </ul>
        </div>
       <div class="company-concat">
-        <div class="btn-color-blue" @click="testToast">客服电话</div>
+        <div class="btn-color-blue">客服电话</div>
         <span>{{tel}}</span>
       </div>
     </div>
@@ -24,6 +24,7 @@ import Banner from '~/components/banner'
 // import { getAuth } from '../api/service'
 
 export default {
+  // middleware: 'serve',
   head () {
     return {
       title: '厚冠官网首页',
@@ -42,18 +43,13 @@ export default {
     Banner
   },
   mounted() {
-    this.$message({title: 'hello',message: '你丫的'})
-    this.$toast.center('123')
+    // this.$message({title: 'hello',message: '你丫的'})
+    // console.log(this.context)
   },
   data() {
     return {
       tel: '400-1728-928',
       imgSrc: '/img/index/banner_index.png'
-    }
-  },
-  methods: {
-    testToast() {
-      this.$toast.center('345')
     }
   }
 }

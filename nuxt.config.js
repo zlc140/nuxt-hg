@@ -39,6 +39,9 @@ module.exports = {
     {src: '~/plugins/vue-notifications', ssr: false} //只在客户端使用
   ],
 
+  router: {
+    middleware: 'serve'
+  },
   /*
   ** Nuxt.js modules
   */
