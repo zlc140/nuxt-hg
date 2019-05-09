@@ -16,10 +16,10 @@
 <script>
   export default {
     fetch({store}) {
-      console.log(store,'store')
+      //console.log(store,'store')
     },
     created() {
-      console.log(this)
+      //console.log(this)
     },
     // watch: {
     //   $route: {

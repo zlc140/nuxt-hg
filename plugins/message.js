@@ -6,6 +6,6 @@ Vue.use(Toast)
 
 Vue.prototype.$message = (options = {}) => {
   let { title, message } = options;
-  console.log(title, message)
+  //console.log(title, message)
 }
 
