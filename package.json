@@ -8,7 +8,9 @@
     "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
     "build": "nuxt build",
     "start": "cross-env NODE_ENV=production nuxt build && node server/index.js",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "dsm": "cross-env NODE_ENV=development && nuxt generate",
+    "prod": "cross-env NODE_ENV=production && nuxt generate"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
