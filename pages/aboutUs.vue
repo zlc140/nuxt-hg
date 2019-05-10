@@ -226,6 +226,7 @@
 
           .desc{
             margin-left: 60px;
+            font-size: 14px;
           }
           .arrow{
             width: 20px;

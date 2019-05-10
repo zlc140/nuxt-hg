@@ -71,7 +71,8 @@
   @bgcardList:1,2,3,4,5,6,7,8;
   .backgroundcard(@className,@pngName) {
     .list_@{className} {
-      background: url("~assets/img/clients/list_@{pngName}.png")no-repeat center 100%;
+      background: url("~assets/img/clients/list_@{pngName}.png")no-repeat center;
+      background-size: 100% 100%;
 
     }
   }
@@ -108,6 +109,11 @@
         color: #fff;
         text-align: center;
         line-height: 100*22/1920vw;
+      }
+      transition: all .5s;
+      &:hover{
+        background-size: 110%;
+        /*transform: rotate(360deg);*/
       }
     }
   }
@@ -177,6 +183,7 @@
       color:#fff;
       justify-content: center;
       line-height:66px;
+      transition: all .5s;
       .icon-qcode{
         display: inline-block;
         background: url("~assets/img/clients/qcode-litter.png") no-repeat center center;
@@ -187,16 +194,18 @@
       .big-icon-qcode{
         width:495px;
         height:441px;
-        display: none;
+        /*display: none;*/
         background:rgba(0,0,0,0.5) url("~assets/img/clients/QRCode.png") no-repeat center center;
         background-size: 50%;
         border-radius:8px;
         position: absolute;
         top: 0;
         left: 0;
+        transform: scale(0);
+        transition: all .5s;
       }
       &:hover .big-icon-qcode{
-        display: block;
+        transform: scale(1);
       }
     }
 

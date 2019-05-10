@@ -14,15 +14,15 @@
     <div class="main-img"></div>
     <div class="process-step">
       <div >
-          <div class="step step-1"></div>
+          <div class="step step-1">提交材料</div>
           <div class="arrow"></div>
-          <div class="step step-2"></div>
+          <div class="step step-2">审批材料</div>
           <div class="arrow"></div>
-          <div class="step step-3"></div>
+          <div class="step step-3">撮合服务</div>
           <div class="arrow"></div>
-          <div class="step step-4"></div>
+          <div class="step step-4">签署合同</div>
           <div class="arrow"></div>
-          <div class="step step-5"></div>
+          <div class="step step-5">放款</div>
       </div>
     </div>
     <div class="content apply-container">
@@ -135,9 +135,13 @@
     .step{
       width: 180px;
       height: 180px;
+      padding-top: 135px;
+      text-align: center;
       float: left;
       background-repeat: no-repeat;
-      background-position: center;
+      background-position:center 35px;
+      font-size: 16px;
+      color: #333;
       transition: all .5s;
       &:hover{
         box-sizing: border-box;
