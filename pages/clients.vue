@@ -47,7 +47,7 @@
       return {
         title: '服务对象',
         meta: [
-          { hid: 'description', name: 'description', content: '服务对象' }
+          { hid: 'description', name: 'description', content: '厚冠咨询服务对象' }
         ]
       }
     },
