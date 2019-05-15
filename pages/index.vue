@@ -27,10 +27,7 @@ export default {
   // middleware: 'serve',
   head () {
     return {
-      title: '厚冠官网首页',
-      meta: [
-        { hid: 'description', name: 'description', content: '厚冠官网首页' }
-      ]
+      title: '【厚冠信息咨询】专注于消费金融、小微金融的金融科技公司'
     }
   },
   // async asyncData() {
