@@ -1,9 +1,16 @@
 import axios from 'axios';
 import config from '../config/index.js'
 // import * as config from '../config/index.js'
+let env = process.env.NODE_ENV || 'development';
+
+let isServer = () => {
+  return window === undefined
+}
+
+let baseUrl = isServer ? config.API_ROOT : ''
 
 const ax = axios.create({
-  baseURL: config.API_ROOT
+  baseURL: baseUrl
 })
 
 // 拦截器

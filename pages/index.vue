@@ -48,10 +48,6 @@ export default {
   components: {
     Banner
   },
-  mounted() {
-    // this.$message({title: 'hello',message: '你丫的'})
-    // console.log(this)
-  },
   data() {
     return {
       tel: '400-1728-928',

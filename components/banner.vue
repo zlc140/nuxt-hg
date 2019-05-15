@@ -1,7 +1,7 @@
 <template>
   <div class="banner-warp"
        :class="{attach: type == '1'}"
-       :style="{backgroundImage:'url('+ imgSrc +')',backgroundPosition: 'top left'}">
+       :style="{backgroundImage:'url('+ imgSrc +')'}">
     <div class="img-box" :class="{right_logo: type == '2'}">
       <img :src="banner_logo" alt="" >
       <div class="right-icon" v-if="type == 1"></div>
@@ -47,7 +47,7 @@
     height: 391px;
     background-repeat: no-repeat;
     background-size: 1920px 391px;
-    background-position: 50%;
+    background-position: left top;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -72,7 +72,7 @@
     }
   }
   .banner-warp.attach{
-    background-position: 50% 0%;
+    background-position: 50% 0;
     background-attachment: fixed;
   }
 </style>

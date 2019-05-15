@@ -183,6 +183,7 @@
       color: rgba(0, 117, 141, 1);
       float: left;
       width: 196px;
+      padding-left: 12px;
       span{
         float: left;
         width: 50px;
