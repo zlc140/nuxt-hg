@@ -20,18 +20,20 @@
     </div>
     <Dialog title="线下使用人群" :dialogVisiable.sync="dialogVisiable" >
       <ul class="dalog-list">
-        <li class="list_1">
+        <li>
+          <div class="list_1"></div>
           <p>缴纳公积金的机关事业和国有企业客户</p>
         </li>
-        <li class="list_2">
+        <li>
+          <div class="list_2"></div>
           <p>正常缴纳公积金的客户</p>
         </li>
-        <li class="list_3"><p>月均收入不低于2千的客户</p></li>
-        <li class="list_4"><p>正常缴纳社保的客户</p></li>
-        <li class="list_5"><p>使用过微粒贷授信额度的客户</p></li>
-        <li class="list_6"><p>有房产的客户</p></li>
-        <li class="list_7"><p>有寿险保单的客户</p></li>
-        <li class="list_8"><p>企业法人代表或股东</p></li>
+        <li><div class="list_3"></div><p>月均收入不低于2千的客户</p></li>
+        <li><div class="list_4"></div><p>正常缴纳社保的客户</p></li>
+        <li><div class="list_5"></div><p>使用过微粒贷授信额度的客户</p></li>
+        <li><div class="list_6"></div><p>有房产的客户</p></li>
+        <li><div class="list_7"></div><p>有寿险保单的客户</p></li>
+        <li><div class="list_8"></div><p>企业法人代表或股东</p></li>
       </ul>
     </Dialog>
   </div>
@@ -96,6 +98,13 @@
       margin-right: 100*10/1920vw; //10
       margin-bottom: 100*10/1920vw;
       float: left;
+      overflow: hidden;
+      div{
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        transition: all .3s;
+      }
       &:nth-child(4n){
         margin-right: 0;
       }
@@ -111,8 +120,11 @@
         line-height: 100*22/1920vw;
       }
       transition: all .5s;
-      &:hover{
-        background-size: 110%;
+      &:hover div{
+        width: 110%;
+        height: 110%;
+        margin-left: -5%;
+        margin-top: -5%;
         /*transform: rotate(360deg);*/
       }
     }
@@ -201,11 +213,13 @@
         position: absolute;
         top: 0;
         left: 0;
-        transform: scale(0);
+        /*transform: scale(0);*/
+        display: none;
         transition: all .5s;
       }
       &:hover .big-icon-qcode{
-        transform: scale(1);
+        /*transform: scale(1);*/
+        display: block;
       }
     }
 

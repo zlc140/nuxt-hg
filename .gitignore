@@ -68,6 +68,13 @@ typings/
 # nuxt.js build output
 .nuxt
 
+#server is to server
+server/.nuxt
+server/static
+server/dist
+server/package.json
+server/nuxt.config.js
+
 # Nuxt generate
 dist
 
