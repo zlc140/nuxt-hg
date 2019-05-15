@@ -3,7 +3,7 @@
     <Banner type="1" :imgSrc="imgSrc"/>
     <div class="main-container">
        <div class="company-introduce">
-          <div class="btn-bg-blue">公司介绍</div>
+          <div class="btn-bg-blue">公司介绍{{test}}</div>
          <ul>
            <li><span>•</span>上海厚冠信息咨询有限公司（以下简称“厚冠信息”），是专注于消费金融、小微金融的金融科技公司。我们致力于将大数据、人工智能等金融科技与传统零售金融优秀实践相结合，用科技创新助力中国金融业供给侧改革，让中国普通民众和小微企业享受到平等、高效、便捷的金融信息服务。</li>
            <li><span>•</span>我们成功将金融科技融入信贷产品研发、精准获客、风险管理、资金运营、资产处置等关键环节，打造了适用于不同场景、不同客群的零售金融解决方案。</li>
@@ -21,7 +21,7 @@
 <script>
 import Banner from '~/components/banner'
 // import { mapState,mapMutations } from 'vuex'
-// import { getAuth } from '../api/service'
+import { getAuth } from '../api/service'
 
 export default {
   // middleware: 'serve',
@@ -33,11 +33,10 @@ export default {
       ]
     }
   },
-  // async asyncData() {
-  //   let { data } = await getAuth()
-  //   console.log(data)
-  //   return { 'test': data }
-  // },
+  async asyncData() {
+    let { data } = await getAuth()
+    return { 'test': data }
+  },
   //  async fetch ({ store, params }) {
   //    // console.log('store',store,params)
   //   // await store.dispatch('GET_STATUS');
