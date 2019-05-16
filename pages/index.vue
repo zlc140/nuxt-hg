@@ -72,9 +72,9 @@ export default {
     padding-top: 15px;
     text-align: justify;
     margin-left: 0px;
-    width: 566px;
-    font-size: 12px;
-    line-height: 18px;
+    width: 542px;
+    font-size: 13px;
+    line-height: 20px;
     font-weight:400;
     font-family:PingFangSC-Regular;
     color:rgba(74,74,74,1);
