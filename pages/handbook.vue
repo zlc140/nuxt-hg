@@ -45,9 +45,9 @@
   export default {
     head () {
       return {
-        title: '贷款指南',
+        title: '借款指南',
         meta: [
-          { hid: 'description', name: 'description', content: '厚冠咨询贷款指南' }
+          { hid: 'description', name: 'description', content: '厚冠咨询借款指南' }
         ]
       }
     },
