@@ -35,7 +35,7 @@
       return {
         navList: [
           { name: '首页', path: '/'},
-          { name: '贷款指南', path: '/handbook'},
+          { name: '借款指南', path: '/handbook'},
           { name: '服务对象', path: '/clients'},
           { name: '关于我们', path: '/aboutUs'},
         ]
