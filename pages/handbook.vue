@@ -36,7 +36,7 @@
       <div class="apply-btn" @click="goApply">立即申请</div>
       <div class="right-icon"></div>
     </div>
-    <p class="declare">声明：厚冠信息仅为专门经营网贷业务的金融信息服务中介机构，不承担借款人与出借人之间任何交易风险及法律责任。</p>
+    <!--<p class="declare">声明：厚冠信息仅为专门经营网贷业务的金融信息服务中介机构，不承担借款人与出借人之间任何交易风险及法律责任。</p> -->
   </div>
 </template>
 <script>
