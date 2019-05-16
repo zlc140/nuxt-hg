@@ -81,7 +81,7 @@ module.exports = {
       //console.log('config',ctx)
        //vue的编译
       Object.assign(config.resolve.alias, {
-        // vue: 'vue/dist/vue.js'
+        vue: 'vue/dist/vue.js'
       })
       // if(!ctx.isDev){
       //   config.output.publicPath = '/app/';

@@ -49,6 +49,9 @@ export default {
       tel: '400-1728-928',
       imgSrc: require('../assets/img/index/banner_index.png')
     }
+  },
+  mounted() {
+    getAuth()
   }
 }
 </script>

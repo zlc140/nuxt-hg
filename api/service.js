@@ -1,7 +1,8 @@
-import ax from './axios.js'
-
-// 获取用户信息
+import req from './request'
+//
+// // 获取用户信息
 export const getAuth = async () => {
-  const res =  await ax.get('/common/getAppSkinStatus');
+  const res =  await req.get('/kuaiyipai-api/common/getAppSkinStatus');
+
   return res.data;
 }

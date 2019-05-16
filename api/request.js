@@ -7,7 +7,7 @@ let isServer = () => {
   return window === undefined
 }
 
-let baseUrl = isServer ? config.API_ROOT : ''
+const baseUrl = isServer() ? config.API_ROOT : '';
 const ax = axios.create({
   baseURL: baseUrl
 })
