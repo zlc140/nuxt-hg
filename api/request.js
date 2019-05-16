@@ -30,10 +30,10 @@ ax.interceptors.response.use(
     // if (response && response.data.code !== 1) {
     //   if (window) window.alert('出错了：' + response.data.message);
     // }
-
     return response;
   },
   error => {
+    console.log(error)
     if (!error.response) {
       // 请求超时状态
       if (error.message.includes('timeout')) {
@@ -62,7 +62,15 @@ class proxyAxios {
     // this.isLoading = false;
     // this.loadingTimer = null;
   }
-
+  /**
+   * 获取proxyFetch单例对象
+   */
+  static getInstance() {
+    if (!this.axiosInstance) {
+      this.axiosInstance = new proxyAxios();
+    }
+    return this.axiosInstance;
+  }
   /**
    * get 请求
    * @param url
@@ -71,23 +79,24 @@ class proxyAxios {
    */
   get(url, params = {}, config = {}) {
     let options = { method: 'get' };
-    if(params){
-      let paramsArray = [];
-      Object.keys(params).forEach(v => {
-          if(params[v] instanceof Array) {
-            const value = params[v].map(item => '"' + item + '"');
-            paramsArray.push(v + '=[' + value.join(',') + ']');
-          }else {
-            paramsArray.push(v + '=' + params[v]);
-          }
-      })
-      if(url.search(/\?/) > -1) {
-        url += paramsArray.join('&');
-      }else {
-        url += '?' + paramsArray.join('&');
-      }
-    }
-    this.doAxios(url, options, config)
+    // if(params){
+    //   let paramsArray = [];
+    //   Object.keys(params).forEach(v => {
+    //       if(params[v] instanceof Array) {
+    //         const value = params[v].map(item => '"' + item + '"');
+    //         paramsArray.push(v + '=[' + value.join(',') + ']');
+    //       }else {
+    //         paramsArray.push(v + '=' + params[v]);
+    //       }
+    //   })
+    //   if(url.search(/\?/) > -1) {
+    //     url += paramsArray.join('&');
+    //   }else {
+    //     url += '?' + paramsArray.join('&');
+    //   }
+    // }
+    options.params = params;
+     return this.doAxios(url, options, config)
   }
 
   /**
@@ -98,8 +107,19 @@ class proxyAxios {
    */
   post(url, params = {}, config = {}) {
     let options = { method: 'post' };
-    options.body = params;
-    this.doAxios(url, options, config)
+    options.data = params;
+    return this.doAxios(url, options, config)
+  }
+  /**
+   * formData请求
+   * @param url
+   * @param params
+   * @param config
+   */
+  formData(url, params = {}, config = {}) {
+    let options = { method: 'post' };
+    options.params = params;
+    return this.doAxios(url, options, config)
   }
 
   /**
@@ -108,11 +128,29 @@ class proxyAxios {
    * @param params
    * @param config
    */
-  doAxios(url, params = {}, config = {}) {
-    let { name } = config
+  doAxios(url, options = {}, config = {}) {
+    let { name,headers } = config;
+    let { method,body } = options;
     const baseUrl = isServer() && env ? envConfig[name || 'MAIN'][env] : '';
+    let axiosOptions = Object.assign({}, {
+      baseURL: baseUrl,
+      url: url,
+      headers: headers? headers: {}
+    }, options);
+    // console.log(axiosOptions)
+    return new Promise((resolve,reject) => {
+      ax(axiosOptions).then(res => {
+        console.log(res)
+        resolve(res)
+      }).catch(err => {
+        reject(err)
+      })
+
+    })
+
 
   }
 }
 
+// export default proxyAxios.getInstance();
 export default ax;

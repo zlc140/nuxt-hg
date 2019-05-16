@@ -51,7 +51,7 @@ export default {
     }
   },
   mounted() {
-    getAuth()
+    // getAuth()
   }
 }
 </script>

@@ -30,13 +30,14 @@ async function start() {
 
 
   app.use(async (ctx, next) => {
+    console.log(ctx,'ctx')
     ctx.status = 200
     ctx.respond = false // Bypass Koa's built-in response handling
     if(devProxy && config.dev){//开发环境通过本地代理请求
-       // proxyMiddleware('/kuaiyipai-api',devProxy['/kuaiyipai-api'])
-      Object.keys(devProxy).forEach(function (context) {
-        proxyMiddleware(context, devProxy[context])
-      })
+       // return proxyMiddleware('/kuaiyipai-api',devProxy['/kuaiyipai-api'])
+      // Object.keys(devProxy).forEach(function (context) {
+      //   proxyMiddleware(context, devProxy[context])
+      // })
     }
     ctx.req.ctx = ctx // This might be useful later on, e.g. in nuxtServerInit or with nuxt-stash
     nuxt.render(ctx.req, ctx.res)
