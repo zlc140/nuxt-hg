@@ -45,7 +45,8 @@ module.exports = {
     // See https://github.com/nuxt-community/axios-module#options
   },
   proxy: [ // 设置代理
-    ['/kuaiyipai-api', { target: 'http://sit.kypapp.in.houbank.net' }]
+    {'/kuaiyipai-api': { target: 'http://sit.kypapp.in.houbank.net' }},
+    {'/offline-mgm-api': { target: 'http://192.168.13.39:8080', ws: false }}
   ],
   /*
   ** Customize the progress-bar color
