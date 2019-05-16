@@ -1,17 +1,29 @@
-const Koa = require('koa');
-const consola = require('consola');
+const express = require('express')
 const { Nuxt, Builder } = require('nuxt');
-const proxyMiddleware = require('http-proxy-middleware');
-const devProxy = require('./dev-proxy');
-const app = new Koa()
+const dev = process.env.NODE_ENV === 'development'
+const compression = require('compression')
+const devProxy = require('./dev-proxy')
+// const Routers  = require('./router')
 
 // Import and Set Nuxt.js options
 let config = require('../nuxt.config')
-config.dev = !(app.env === 'production')
+
 
 async function start() {
   // Instantiate nuxt.js
-  const nuxt = new Nuxt(config)
+  const nuxt = await new Nuxt(config)
+  const app = express()
+  app.use(nuxt.render)
+  config.dev = !(app.env === 'production')
+  app.use(compression())
+
+  // Set up the proxy.
+  // if (dev && devProxy) {
+  //   const proxyMiddleware = require('http-proxy-middleware')
+  //   Object.keys(devProxy).forEach(function (context) {
+  //     app.use(proxyMiddleware(context, devProxy[context]))
+  //   })
+  // }
 
   const {
     host = process.env.HOST || '0.0.0.0',
@@ -21,33 +33,20 @@ async function start() {
   // Build in development
   if (config.dev) {
 
-    const builder = new Builder(nuxt)
-    await builder.build()
+    try {
+      const builder = new Builder(nuxt)
+      await builder.build()
+    } catch (error) {
+      console.log(error)
+      process.exit(1)
+    }
+
   } else {
     await nuxt.ready()
   }
 
-
-
-  app.use(async (ctx, next) => {
-    console.log(ctx,'ctx')
-    ctx.status = 200
-    ctx.respond = false // Bypass Koa's built-in response handling
-    if(devProxy && config.dev){//开发环境通过本地代理请求
-       // return proxyMiddleware('/kuaiyipai-api',devProxy['/kuaiyipai-api'])
-      // Object.keys(devProxy).forEach(function (context) {
-      //   proxyMiddleware(context, devProxy[context])
-      // })
-    }
-    ctx.req.ctx = ctx // This might be useful later on, e.g. in nuxtServerInit or with nuxt-stash
-    nuxt.render(ctx.req, ctx.res)
-  })
-
   app.listen(port, host)
-  consola.ready({
-    message: `Server listening on http://${host}:${port}`,
-    badge: true
-  })
+  console.log('> Ready on '+ host +':'+ port)
 }
 
-start()
+start();

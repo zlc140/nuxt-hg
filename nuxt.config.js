@@ -30,6 +30,23 @@ module.exports = {
       }
     }
   },
+  modules: [
+    '@nuxtjs/axios',
+    '@nuxtjs/proxy',
+    '@nuxtjs/pwa',
+  ],
+  /*
+  ** Axios module configuration
+  */
+  axios: {
+    proxy: true, // 表示开启代理
+    prefix: '/api', // 表示给请求url加个前缀 /api
+    credentials: true // 表示跨域请求时是否需要使用凭证
+    // See https://github.com/nuxt-community/axios-module#options
+  },
+  proxy: [ // 设置代理
+    ['/kuaiyipai-api', { target: 'http://sit.kypapp.in.houbank.net' }]
+  ],
   /*
   ** Customize the progress-bar color
   */
@@ -53,20 +70,6 @@ module.exports = {
   router: {
     // base: process.env.NODE_ENV === 'production' ?'/app/': '/'
     // middleware: 'serve'
-  },
-  /*
-  ** Nuxt.js modules
-  */
-  modules: [
-    // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios',
-    '@nuxtjs/pwa',
-  ],
-  /*
-  ** Axios module configuration
-  */
-  axios: {
-    // See https://github.com/nuxt-community/axios-module#options
   },
 
   /*

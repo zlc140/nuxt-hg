@@ -9,7 +9,7 @@ let isServer = () => {
 
 
 const ax = axios.create({
-  headers: {'Content-Type': 'application/json'}
+  // headers: {'Content-Type': 'application/json'}
 })
 
 // 拦截器
