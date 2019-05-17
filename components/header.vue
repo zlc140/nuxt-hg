@@ -87,6 +87,15 @@
        .nav-item{
          margin-left: 56px;
          float: left;
+         a{
+           opacity: 0.7;
+           &:hover{
+             opacity: 1;
+           }
+         }
+         .nuxt-link-exact-active{
+           opacity: 1;
+         }
        }
      }
 

@@ -5,7 +5,7 @@
       <div>
         <div class="app-HQB icon"></div>
         <p class="title">厚钱包APP</p>
-        <p class="desc">为拥有信用卡或公积金客户提供的线上贷款APP</p>
+        <p class="desc">为拥有信用卡或公积金客户提供的线上借款APP</p>
         <div class="btn">
           立即申请<span class="icon-qcode"></span>
           <div class="big-icon-qcode"></div>
@@ -14,7 +14,7 @@
       <div>
         <div class="app-XXZH icon"></div>
         <p class="title">线下综合产品</p>
-        <p class="desc">按客群分类为适用人群提供线下贷款业务</p>
+        <p class="desc">按客群分类为适用人群提供线下借款业务</p>
         <div class="btn" @click="handleClick">了解详情</div>
       </div>
     </div>

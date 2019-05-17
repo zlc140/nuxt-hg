@@ -31,7 +31,7 @@
         <div><p><span>2000</span>元</p><p>只需月入满</p></div>
         <div><p><span>1</span>天</p><p>到账最快</p> </div>
         <div><p><span>3</span>天</p><p>借款期限最长</p></div>
-        <div><p><span>20</span>万</p><p>金额最高可贷</p></div>
+        <div><p><span>20</span>万</p><p>金额最高可借</p></div>
       </div>
       <div class="apply-btn" @click="goApply">立即申请</div>
       <div class="right-icon"></div>
