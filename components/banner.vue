@@ -48,6 +48,7 @@
     background-repeat: no-repeat;
     background-size: 1920px 391px;
     background-position: left top;
+    background-color: rgb(57, 162, 169);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -74,5 +75,6 @@
   .banner-warp.attach{
     background-position: 50% 0;
     background-attachment: fixed;
+    background-color:rgba(0,0,0,0)
   }
 </style>
