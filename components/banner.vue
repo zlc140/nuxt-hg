@@ -28,7 +28,7 @@
     data() {
       return {
         banner_logo: require('../assets/img/index/logo_banner.png'),
-        banner_bg: ''
+        banner_bg: require('../assets/img/index/banner_index.png'),
       }
     },
     created() {
@@ -53,7 +53,7 @@
     align-items: center;
     justify-content: center;
     .img-box{
-      width: 13.6vw;
+      width: 261px; //13.6vw
       height: auto;
       display: flex;
       align-items: center;
@@ -68,7 +68,7 @@
       width: 900px;
       text-align: right;
       img{
-        width: 21.7vw; //464px
+        width: 464px; // 21.7vw
       }
     }
   }
@@ -76,5 +76,11 @@
     background-position: 50% 0;
     background-attachment: fixed;
     background-color:rgba(0,0,0,0)
+  }
+  @media screen and (min-width: 1921px) {
+    .banner-warp.attach{
+      background-size: 100% auto;
+      background-position: 50%;
+    }
   }
 </style>

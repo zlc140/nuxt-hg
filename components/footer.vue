@@ -2,7 +2,7 @@
   <div class="footer-warp">
       <div class="footer-title">
         <div class="nav-item" v-for="(item,index) in navList" :key="index" >
-          <nuxt-link class="name-title" :to="item.path" v-if="item.path">{{item.name}}</nuxt-link>
+          <a class="name-title" :href="item.path" v-if="item.path" :class="item.type">{{item.name}}</a>
           <span class="name-title" @click="toogleTip" v-else>{{item.name}}</span>
         </div>
       </div>
@@ -20,10 +20,10 @@
     data() {
       return {
         navList: [
-          { name: '官方微信', path: ''},
-          { name: '官方微博', path: ''},
-          { name: '客服邮箱', path: ''},
-          { name: '加入我们', path: ''},
+          { name: '官方微信', path: '', type: 'wx'},
+          { name: '官方微博', path: '', type: 'blog'},
+          { name: '客服邮箱', path: 'mailto:support@houguanfin.com', type: 'email'},
+          { name: '加入我们', path: '', type: 'about'},
         ]
       }
     },
