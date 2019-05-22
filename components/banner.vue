@@ -80,7 +80,7 @@
   @media screen and (min-width: 1921px) {
     .banner-warp.attach{
       background-size: 100% auto;
-      background-position: 50%;
+      background-position: center;
     }
   }
 </style>

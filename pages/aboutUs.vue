@@ -46,7 +46,8 @@
       <div class="concat-info">
         <p class="title">联系我们</p>
         <p>客服热线：400-1728-928(每周一至周日9:00-21:00)</p>
-        <p>邮 箱：service@houguantech.com</p>
+        <p>客服邮箱：support@houguanfin.com</p>
+        <p>商务合作：bd@houguanfin.com</p>
         <p>公司地址：上海市浦东新区锦康路308号陆家嘴世纪金融广场6号楼7F</p>
       </div>
       <div class="logo-box"></div>

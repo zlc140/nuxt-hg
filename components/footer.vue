@@ -1,11 +1,11 @@
 <template>
   <div class="footer-warp">
-      <div class="footer-title">
-        <div class="nav-item" v-for="(item,index) in navList" :key="index" >
-          <a class="name-title" :href="item.path" v-if="item.path" :class="item.type">{{item.name}}</a>
-          <span class="name-title" @click="toogleTip" v-else>{{item.name}}</span>
-        </div>
-      </div>
+<!--      <div class="footer-title">-->
+<!--        <div class="nav-item" v-for="(item,index) in navList" :key="index" >-->
+<!--          <a class="name-title" :href="item.path" v-if="item.path" :class="item.type">{{item.name}}</a>-->
+<!--          <span class="name-title" @click="toogleTip" v-else>{{item.name}}</span>-->
+<!--        </div>-->
+<!--      </div>-->
       <div class="footer-record">Copyright 2019 houguanfin.com,All Rights Reserved. 上海厚冠信息咨询有限公司</div>
       <div class="footer-record">沪ICP备18028827号-1 &nbsp;&nbsp;&nbsp;
 <!--        <img src="https://static.houbank.com/hb-web/img/country.96ead78.png" />沪公网安备 <a href="">31010102002097号</a>-->
@@ -47,7 +47,7 @@
 <style lang="less" >
   .footer-warp{
     width: 100%;
-    height: 146px;
+    height: 100px;
     text-align: center;
     padding-top: 28px;
     .footer-title{
