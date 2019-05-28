@@ -111,3 +111,10 @@ Vue.use(VueNotifications, options)
   
   
 ```
+## nuxt.config.js配置
+6.mode配置
+ a. mode 设置  'spa'(客户端加载+路由), 'universal'（服务端加载+路由）
+ b.注意：在配置为服务端渲染的时候，fetch,asyncData中的ajax请求的地址需要配置服务端的URL
+
+7.服务端渲染部署
+  1.拷贝build之后的.nuxt文件夹到服务器地址目录下，新建packjson,添加命令：nuxt start就可以了

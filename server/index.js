@@ -41,7 +41,7 @@ async function start() {
       process.exit(1)
     }
 
-  } else {
+    } else {
     await nuxt.ready()
   }
 

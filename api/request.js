@@ -3,10 +3,10 @@ import axios from 'axios';
 import envConfig from '../server/env-config';
 let env = process.env.NODE_ENV || 'development';
 
-let isServer = () => {
-  return window === undefined
-}
 
+const isServer = (() => {
+  return typeof window === 'undefined';
+})();
 
 const ax = axios.create({
   // headers: {'Content-Type': 'application/json'}
@@ -131,16 +131,19 @@ class proxyAxios {
   doAxios(url, options = {}, config = {}) {
     let { name,headers } = config;
     let { method,body } = options;
-    const baseUrl = isServer() && env ? envConfig[name || 'MAIN'][env] : '';
+
+    const baseUrl = isServer && env ? envConfig[name || 'MAIN'][env] : '';
+    // const baseUrl = 'http://sit.kypapp.in.houbank.net'
+    console.log('ajax-------------'+baseUrl)
     let axiosOptions = Object.assign({}, {
-      baseURL: baseUrl,
-      url: url,
+      // baseURL: baseUrl,
+      url: baseUrl + url,
       headers: headers? headers: {}
     }, options);
     // console.log(axiosOptions)
     return new Promise((resolve,reject) => {
       ax(axiosOptions).then(res => {
-        console.log(res)
+        // console.log(res)
         resolve(res)
       }).catch(err => {
         reject(err)
@@ -152,5 +155,5 @@ class proxyAxios {
   }
 }
 
-// export default proxyAxios.getInstance();
-export default ax;
+export default proxyAxios.getInstance();
+// export default ax;

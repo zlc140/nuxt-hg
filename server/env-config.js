@@ -12,5 +12,11 @@ export default {
     sit: 'http://192.168.13.39:8080',
     mit: 'http://192.168.13.39:8080',
     production: 'https://telesale-ssr.houbank.com',
+  },
+  'kyp': {
+    development: 'http://sit.kypapp.in.houbank.net',
+    sit: 'http://sit.kypapp.in.houbank.net',
+    mit: 'http://uat.kypapp.in.houbank.net',
+    production: 'http://sit.kypapp.in.houbank.net'
   }
 };

@@ -2,8 +2,8 @@ const pkg = require('./package')
 
 
 module.exports = {
-  mode: 'spa',
-  // server: {
+  mode: 'universal',//spa为客户端加载，universal为服务端渲染
+  // server: { //配置端口和host
   //   port: 3002
   // },
   /*
@@ -23,11 +23,15 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+  // performance: { //无效？？？开启关闭预加载
+  //   prefetch: true
+  // },
   render: {
+    // resourceHints: true, //无效？？？
     bundleRenderer: {
-      shouldPreload: (file, type) => {
-        return ['script', 'style', 'font'].includes(type)
-      }
+      shouldPreload: (file, type) => { //添加之后有些js就有了预加载
+        return ['script','style','font'].includes(type)
+      },
     }
   },
   modules: [
@@ -45,14 +49,14 @@ module.exports = {
     // See https://github.com/nuxt-community/axios-module#options
   },
   proxy: [ // 设置代理
-    {'/kuaiyipai-api': { target: 'http://sit.kypapp.in.houbank.net' }},
-    {'/offline-mgm-api': { target: 'http://192.168.13.39:8080', ws: false }}
+    // {'/kuaiyipai-api': { target: 'http://sit.kypapp.in.houbank.net' }},
+    // {'/offline-mgm-api': { target: 'http://192.168.13.39:8080', ws: false }}
   ],
   /*
   ** Customize the progress-bar color
   */
   loading: { color: '#fff' },
-
+  imgUrl: { limit: 5000 },
   /*
   ** Global CSS
   */
@@ -70,14 +74,68 @@ module.exports = {
 
   router: {
     // base: process.env.NODE_ENV === 'production' ?'/app/': '/'
-    // middleware: 'serve'
+    // middleware: 'serve',
+    // linkActiveClass: 'link-active',
+    // extendRoutes(routes) {
+    // },
+    // scrollBehavior(to, from, savedPosition) {
+    //   return { x: 0, y: 100 }
+    // },
   },
 
   /*
   ** Build configuration
   */
   build: {
-
+    analyze: process.argv.join('').includes('analyze'), // 分析
+    maxChunkSize: 360000, // 单个包最大尺寸
+    // extractCSS: true, // 单独提取 css， 公共组件的css多次提取
+    postcss: {
+      'postcss-custom-properties':{ warnings: false },
+      plugins:[require('autoprefixer')({
+        "browsers": [
+          "defaults",
+          "not ie < 11",
+          "last 2 versions",
+          "> 1%",
+          "iOS 7",
+          "last 3 iOS versions"
+        ]
+      })]
+    },
+    optimization: {
+      splitChunks: {
+        cacheGroups: {
+          expansions: {
+            name: 'expansions',
+            test(module) {
+              return /swiper|233333|howler|lozad|marked|favico|rtcpeerconnection|webrtc|highlight/.test(module.context);
+            },
+            chunks: 'initial',
+            priority: 10,
+          },
+          vendors: {
+            test: /[\\/]node_modules[\\/]/,
+            priority: -10
+          },
+          default: {
+            minChunks: 2,
+            priority: -20,
+            reuseExistingChunk: true
+          },
+          // page -> 合并组件会导致运行异常
+          /*
+          page: {
+            name: 'page',
+            test: /\.(css|vue)$/,
+            chunks: 'all',
+            enforce: true,
+            priority: -20
+          }
+          */
+        }
+      }
+    },
     /*
     ** You can extend webpack config here
     */

@@ -6,7 +6,7 @@ const devProxy = require('./dev-proxy');
 const app = new Koa()
 
 // Import and Set Nuxt.js options
-let config = require('../nuxt.config')
+let config = require('./nuxt.config')
 config.dev = !(app.env === 'production')
 
 async function start() {
