@@ -23,11 +23,11 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-  // performance: { //无效？？？开启关闭预加载
-  //   prefetch: true
-  // },
+  performance: { //无效？？？开启关闭预加载
+    prefetch: true
+  },
   render: {
-    // resourceHints: true, //无效？？？
+    // resourceHints: false, //无效？？？
     bundleRenderer: {
       shouldPreload: (file, type) => { //添加之后有些js就有了预加载
         return ['script','style','font'].includes(type)
@@ -36,7 +36,7 @@ module.exports = {
   },
   modules: [
     '@nuxtjs/axios',
-    '@nuxtjs/proxy',
+    // '@nuxtjs/proxy',
     '@nuxtjs/pwa',
   ],
   /*
@@ -44,19 +44,24 @@ module.exports = {
   */
   axios: {
     proxy: true, // 表示开启代理
-    prefix: '/api', // 表示给请求url加个前缀 /api
+    prefix: '', // 表示给请求url加个前缀 /api
     credentials: true // 表示跨域请求时是否需要使用凭证
     // See https://github.com/nuxt-community/axios-module#options
   },
-  proxy: [ // 设置代理
-    // {'/kuaiyipai-api': { target: 'http://sit.kypapp.in.houbank.net' }},
-    // {'/offline-mgm-api': { target: 'http://192.168.13.39:8080', ws: false }}
-  ],
+  proxy: {  // 设置代理
+    '/kuaiyipai-api': {
+      target: 'http://sit.kypapp.in.houbank.net',
+      changeOrigin: true,
+      pathRewrite: {
+        '^/kuaiyipai-api': '/kuaiyipai-api',
+      },
+    }
+  },
+
   /*
   ** Customize the progress-bar color
   */
   loading: { color: '#fff' },
-  imgUrl: { limit: 5000 },
   /*
   ** Global CSS
   */
@@ -74,7 +79,7 @@ module.exports = {
 
   router: {
     // base: process.env.NODE_ENV === 'production' ?'/app/': '/'
-    // middleware: 'serve',
+    middleware: 'serve',
     // linkActiveClass: 'link-active',
     // extendRoutes(routes) {
     // },
@@ -87,9 +92,20 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    filenames: {
+      chunk: ({ isDev }) => isDev ? '[name].js' : '[id].[chunkhash].js',
+      img: ({ isDev }) => isDev ? 'img/[hash:7].[ext]' : 'img/[hash:7].[ext]'
+    },
+    loaders: {
+      imgUrl: { limit: 4000 },
+      less: {
+
+      }
+    },
+
     analyze: process.argv.join('').includes('analyze'), // 分析
     maxChunkSize: 360000, // 单个包最大尺寸
-    // extractCSS: true, // 单独提取 css， 公共组件的css多次提取
+    extractCSS: true, // 单独提取 css， 公共组件的css多次提取
     postcss: {
       'postcss-custom-properties':{ warnings: false },
       plugins:[require('autoprefixer')({
@@ -109,7 +125,7 @@ module.exports = {
           expansions: {
             name: 'expansions',
             test(module) {
-              return /swiper|233333|howler|lozad|marked|favico|rtcpeerconnection|webrtc|highlight/.test(module.context);
+              return /swiper|Dialog/.test(module.context);
             },
             chunks: 'initial',
             priority: 10,

@@ -99,3 +99,131 @@ a:-webkit-any-link{
   right: 0 ;
   top: 0;
 }
+
+//banner
+.banner-warp{
+  width: 100%;
+  height: 391px;
+  background-repeat: no-repeat;
+  background-size: 1920px 391px;
+  background-position: left top;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .img-box{
+    width: 13.6vw;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  img{
+    display: inline-block;
+    width: 100%;
+    /*margin: auto;*/
+  }
+  .right_logo{
+    width: 900px;
+    text-align: right;
+    img{
+      width: 21.7vw; //464px
+    }
+  }
+}
+.banner-warp.attach{
+  background-position: 50% 0;
+  background-attachment: fixed;
+}
+//header
+
+.header-warp{
+  width: 100%;
+  height: 85px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 11;
+  background-color: rgba(0,0,0,0);
+  .logo-box{
+    color:#fff;
+    width: 140px;
+    height: 35px;
+    display: inline-block;
+    background-image: url('~assets/img/index/logo_header.png');
+    background-size: 140px 35px;
+  }
+  .header-body{
+    height: 100%;
+    display: flex;
+    clear: both;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .header-title{
+    display: inline-block;
+    _zoom:1;
+    a{
+      font-size: 16px;
+      color: #fff;
+      text-underline: none;
+    }
+    display: flex;
+    clear: both;
+    .nav-item{
+      margin-left: 56px;
+      float: left;
+    }
+  }
+
+  &.dark_head{
+    .logo-box{
+      background-image: url('~assets/img/index/grend_logo.png');
+    }
+    .header-title{
+      a{
+        color: #333;
+      }
+    }
+  }
+}
+
+//footer
+.footer-warp{
+  width: 100%;
+  height: 146px;
+  text-align: center;
+  padding-top: 28px;
+  .footer-title{
+    width: 800px;
+    margin: 0 auto 34px;
+    display: flex;
+    clear: both;
+    justify-content: space-between;
+    .nav-item{
+      float: left;
+      .name-title{
+        cursor: pointer;
+        font-size: 16px;
+        color: #333;
+        text-underline: none;
+      }
+    }
+  }
+  .footer-record{
+    font-size: 14px;
+    text-align: center;
+    color: #333;
+    a{
+      font-size: 14px;
+      color: #333;
+    }
+    img{
+      display: inline-block;
+      width: 17px;
+      height: 19px;
+      margin-right: 4px;
+      margin-bottom: -4px;
+    }
+  }
+}

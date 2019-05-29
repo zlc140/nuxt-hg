@@ -134,7 +134,7 @@ class proxyAxios {
 
     const baseUrl = isServer && env ? envConfig[name || 'MAIN'][env] : '';
     // const baseUrl = 'http://sit.kypapp.in.houbank.net'
-    console.log('ajax-------------'+baseUrl)
+    // console.log('ajax-------------'+baseUrl)
     let axiosOptions = Object.assign({}, {
       // baseURL: baseUrl,
       url: baseUrl + url,

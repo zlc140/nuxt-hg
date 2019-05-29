@@ -40,39 +40,3 @@
 
   }
 </script>
-
-<style lang="less" >
-  .banner-warp{
-    width: 100%;
-    height: 391px;
-    background-repeat: no-repeat;
-    background-size: 1920px 391px;
-    background-position: left top;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    .img-box{
-      width: 13.6vw;
-      height: auto;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-    }
-    img{
-      display: inline-block;
-      width: 100%;
-      /*margin: auto;*/
-    }
-    .right_logo{
-      width: 900px;
-      text-align: right;
-      img{
-        width: 21.7vw; //464px
-      }
-    }
-  }
-  .banner-warp.attach{
-    background-position: 50% 0;
-    background-attachment: fixed;
-  }
-</style>

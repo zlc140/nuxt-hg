@@ -64,7 +64,7 @@
         ]
       }
     },
-    layout: 'aboutLayouts',
+    // layout: 'aboutLayouts',
     data() {
       return {
         top: '25px',

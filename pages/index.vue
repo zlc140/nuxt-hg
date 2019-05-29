@@ -24,18 +24,18 @@ import Banner from '~/components/banner'
 import { getAuth } from '../api/service'
 
 export default {
-  // middleware: 'serve',
+  middleware: 'auth',
   head () {
     return {
       title: '【厚冠信息咨询】专注于消费金融、小微金融的金融科技公司'
     }
   },
   async asyncData() {
-    let { data } = await getAuth()
-    return { 'test': data }
+    // let { data } = await getAuth()
+    return { 'test': 2 }
   },
   //  async fetch ({ store, params }) {
-  //    // console.log('store',store,params)
+  //    console.log('store',store,params)
   //   // await store.dispatch('GET_STATUS');
   //    let { data } = await getAuth()
   //    console.log(data)
@@ -51,6 +51,7 @@ export default {
     }
   },
   mounted() {
+    // console.log(this)
     // getAuth()
   }
 }

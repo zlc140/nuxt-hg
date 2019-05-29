@@ -30,7 +30,7 @@ async function start() {
 
 
   app.use(async (ctx, next) => {
-    console.log(ctx,'ctx')
+    // console.log(ctx,'ctx')
     ctx.status = 200
     ctx.respond = false // Bypass Koa's built-in response handling
     if(devProxy && config.dev){//开发环境通过本地代理请求

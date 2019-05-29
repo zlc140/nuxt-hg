@@ -11,7 +11,7 @@ const actions = {
 
 const state = () => ({
   status: '0',
-  headerBar: 'init'
+  headerBar: '1'
 })
 
 const getters = {
@@ -23,6 +23,9 @@ const getters = {
 const mutations = {
   GET_STATUS (state, text) {
    state.status = text;
+  },
+  SET_STATUS (state, text) {
+    state.headerBar = text;
   }
 }
 
