@@ -10,7 +10,7 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: pkg.name,
+    title: '【上海厚冠信息咨询有限公司】专注于消费金融、小微金融的金融科技公司',
     meta: [
       { charset: 'utf-8' },
       { httpEquiv: 'X-UA-Compatible', content: 'IE=Edge,chrome=1' },
